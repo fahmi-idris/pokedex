@@ -11,13 +11,14 @@ import { capitalize, formatWeight, renderPokemonImage } from 'utils/formatter';
 import { colors, fonts } from 'components/provider';
 import { Container, ResponsiveFlex } from 'modules/components';
 import { ScreenLoading } from 'components/loading';
+import { Button } from 'components/button';
 import { DetailInfo, DetailStats } from './components';
 
 type Props = RouteComponentProps;
 
 const COLORS = [colors.main, colors.secondary, colors.blue, colors.gray1, colors.gray2, colors.gray3, colors.red];
 
-const Detail: React.FC<Props> = ({ match }) => {
+const Detail: React.FC<Props> = ({ match, history }) => {
   const pokemonId = get(match, 'params.pokemonId', '');
   const [data, setData] = useState<PokemonDetail>();
 
@@ -29,6 +30,7 @@ const Detail: React.FC<Props> = ({ match }) => {
     const { id, height, name, abilities, stats, weight, types } = data;
     return (
       <Container>
+        <Button onClick={() => history.push('/')}>Back</Button>
         <DetailContainer>
           <DetailImageContainer>
             <DetailImage src={renderPokemonImage(id)} />
