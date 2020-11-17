@@ -22,14 +22,14 @@ export const getAllPokemon = (page: string): string => {
 
 export const formatWeight = (weight: number): string => {
   const lbs = Math.floor(weight * 22.046) / 100;
-  return `${lbs} lbs  (${weight / 10}kg)`;
+  return `${lbs} lbs (${weight / 10}kg)`;
 };
 
 export const toFeet = (meters: number): string => {
   const realFeet = (meters * 0.3937) / 12;
   const feet = Math.floor(realFeet);
   const inches = Math.round((realFeet - feet) * 12);
-  return `${feet} ' ${inches} '`;
+  return `${feet} feet ${inches}"`;
 };
 
 export const formatHeight = (height: number): string => `${toFeet(height * 10)} (${height / 10}m)`;

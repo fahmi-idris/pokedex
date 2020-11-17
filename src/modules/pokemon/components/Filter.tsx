@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { get } from 'lodash';
 
-import { colors } from 'components/provider';
+import { colors, fonts } from 'components/provider';
 
 type Props = RouteComponentProps;
 
@@ -56,6 +56,7 @@ const FilterItem = styled('div')<{ isActive: boolean }>`
   text-transform: capitalize;
   font-size: 14px;
   cursor: pointer;
+  font-family: ${fonts.montserratMedium};
 
   &:hover {
     border-bottom: 3px solid ${colors.main};

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { PokemonDetail } from 'interfaces/pokemon';
 
 import { api } from 'utils/api';
-import { capitalize, formatWeight, renderPokemonImage } from 'utils/formatter';
+import { capitalize, formatHeight, formatWeight, renderPokemonImage } from 'utils/formatter';
 
 import { colors, fonts } from 'components/provider';
 import { Container, ResponsiveFlex } from 'modules/components';
@@ -37,7 +37,7 @@ const Detail: React.FC<Props> = ({ match, history }) => {
           </DetailImageContainer>
           <DetailContent>
             <DetailTitle>{`${name} #${id}`}</DetailTitle>
-            <DetailInfo title="Height">{formatWeight(height)}</DetailInfo>
+            <DetailInfo title="Height">{formatHeight(height)}</DetailInfo>
             <DetailInfo title="Weight">{formatWeight(weight)}</DetailInfo>
             <DetailInfo title="Abilities">
               {abilities
