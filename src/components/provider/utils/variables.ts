@@ -4,20 +4,14 @@ export const colors = {
   main: '#40B983',
   secondary: '#96EDC6',
   blue: '#519BF7',
-  redNotification: '#F5222D',
   text: '#000000A6',
   red: '#B94040',
   placeholder: '#00000040',
   inputColor: '#525b64',
-  inputBorderDefault: '#d9d9d9a6',
-  gray: '#D9D9D9',
-  grayBox: '#E9E9E9',
-  bgMenu: '#F6FAFE',
-  gray10: '#F2F2F2',
-  greenSecondary: '#3dbb7f',
+  gray1: '#d9d9d9a6',
+  gray2: '#D9D9D9',
+  gray3: '#f5f5f5',
   disabled: 'rgb(194, 199, 200)',
-  tagsDefault: '#00B2F7',
-  greenSecondary2: '#49ce92',
 };
 
 export const systemFonts = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif";

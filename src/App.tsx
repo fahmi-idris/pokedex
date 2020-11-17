@@ -1,5 +1,26 @@
 import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
-const App: React.FC = () => <div>pokedex</div>;
+import { Header, Footer } from 'components/core';
+import { ScreenLoading } from 'components/loading';
+
+const Pokemon = React.lazy(() => import(/* webpackChunkName: 'pokemon' */ './modules/pokemon/pokemon'));
+const Type = React.lazy(() => import(/* webpackChunkName: 'pokemon' */ './modules/pokemon/type'));
+
+const App: React.FC = () => (
+  <>
+    <Header />
+    <React.Suspense fallback={<ScreenLoading />}>
+      <Switch>
+        <Route path="/" component={Pokemon} exact />
+        <Route path="/page/:page" component={Pokemon} />
+        <Route path="/type/:type" component={Type} />
+        <Route path="/pokemon/:pokemonId" component={() => <div>pokemon detail</div>} />
+        <Route render={() => <Redirect to="/" />} />
+      </Switch>
+    </React.Suspense>
+    <Footer />
+  </>
+);
 
 export default App;
