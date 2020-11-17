@@ -5,7 +5,8 @@ import { Header, Footer } from 'components/core';
 import { ScreenLoading } from 'components/loading';
 
 const Pokemon = React.lazy(() => import(/* webpackChunkName: 'pokemon' */ './modules/pokemon/pokemon'));
-const Type = React.lazy(() => import(/* webpackChunkName: 'pokemon' */ './modules/pokemon/type'));
+const PokemonType = React.lazy(() => import(/* webpackChunkName: 'pokemon-type' */ './modules/pokemon/type'));
+const PokemonDetail = React.lazy(() => import(/* webpackChunkName: 'pokemon-detail' */ './modules/detail'));
 
 const App: React.FC = () => (
   <>
@@ -14,8 +15,8 @@ const App: React.FC = () => (
       <Switch>
         <Route path="/" component={Pokemon} exact />
         <Route path="/page/:page" component={Pokemon} />
-        <Route path="/type/:type" component={Type} />
-        <Route path="/pokemon/:pokemonId" component={() => <div>pokemon detail</div>} />
+        <Route path="/type/:type" component={PokemonType} />
+        <Route path="/pokemon/:pokemonId" component={PokemonDetail} />
         <Route render={() => <Redirect to="/" />} />
       </Switch>
     </React.Suspense>

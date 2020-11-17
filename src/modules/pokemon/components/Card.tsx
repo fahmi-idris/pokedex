@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 
-import { breakpoints, colors, fonts } from 'components/provider';
+import { colors, fonts } from 'components/provider';
+import { ResponsiveFlex } from 'modules/components';
+
 import { PokemonList } from 'interfaces/pokemon';
 
 import { renderPokemonId, renderPokemonImage } from 'utils/formatter';
@@ -33,9 +35,7 @@ const CardContainer = styled('div')`
   text-align: center;
   padding: 25px;
 
-  @media screen and (max-width: ${breakpoints.sm}px) {
-    flex: 0 0 100%;
-  }
+  ${ResponsiveFlex};
 `;
 
 const CardItem = styled('div')`

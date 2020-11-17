@@ -8,7 +8,6 @@ import { api } from 'utils/api';
 import { getAllPokemon } from 'utils/formatter';
 
 import { Container } from 'modules/components';
-import { ScreenLoading } from 'components/loading';
 import { Filter, List, LoadMore } from '../components';
 
 interface Pokemon {
@@ -29,15 +28,11 @@ const Pokemon: React.FC<Props> = ({ match }) => {
       .finally(() => setLoading(false));
   }, [match]);
 
-  if (isLoading) {
-    return <ScreenLoading />;
-  }
-
   return (
     <Container>
       <Filter />
       <List data={data} />
-      <LoadMore />
+      <LoadMore isLoading={isLoading} />
     </Container>
   );
 };

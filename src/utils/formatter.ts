@@ -1,7 +1,6 @@
 import { PokemonList } from 'interfaces/pokemon';
 import { LIMIT, OFFSET } from 'utils/constants';
 
-const API = process.env.API || 'https://pokeapi.co/api/v2';
 const IMAGE_STORAGE =
   process.env.IMAGE_STORAGE || 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon';
 
@@ -18,7 +17,21 @@ export const renderPokemonId = (data: PokemonList): string => {
 
 export const getAllPokemon = (page: string): string => {
   const limit = page ? parseInt(page as string, 10) * LIMIT : LIMIT;
-  return `${API}/pokemon/?limit=${limit}&offset=${OFFSET}`;
+  return `/pokemon/?limit=${limit}&offset=${OFFSET}`;
 };
 
-export const getPokemonByType = (type: string): string => `${API}/type/${type}`;
+export const formatWeight = (weight: number): string => {
+  const lbs = Math.floor(weight * 22.046) / 100;
+  return `${lbs} lbs  (${weight / 10}kg)`;
+};
+
+export const toFeet = (meters: number): string => {
+  const realFeet = (meters * 0.3937) / 12;
+  const feet = Math.floor(realFeet);
+  const inches = Math.round((realFeet - feet) * 12);
+  return `${feet} ' ${inches} '`;
+};
+
+export const formatHeight = (height: number): string => `${toFeet(height * 10)} (${height / 10}m)`;
+
+export const capitalize = (value: string): string => value.charAt(0).toUpperCase() + value.slice(1);

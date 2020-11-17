@@ -5,7 +5,6 @@ import { get } from 'lodash';
 import { PokemonList, PokemonTypeList } from 'interfaces/pokemon';
 
 import { api } from 'utils/api';
-import { getPokemonByType } from 'utils/formatter';
 
 import { Container } from 'modules/components';
 import { ScreenLoading } from 'components/loading';
@@ -24,7 +23,7 @@ const PokemonType: React.FC<Props> = ({ match }) => {
 
   useEffect(() => {
     setLoading(true);
-    api<Pokemon>(getPokemonByType(type))
+    api<Pokemon>(`/type/${type}`)
       .then((response) => setData(response.pokemon.map((item) => item.pokemon)))
       .finally(() => setLoading(false));
   }, [match]);

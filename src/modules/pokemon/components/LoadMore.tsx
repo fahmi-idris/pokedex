@@ -5,14 +5,18 @@ import styled from 'styled-components';
 
 import { Button } from 'components/button';
 
-type Props = RouteComponentProps;
+interface Props extends RouteComponentProps {
+  isLoading: boolean;
+}
 
-const LoadMore: React.FC<Props> = ({ match, history }) => {
+const LoadMore: React.FC<Props> = ({ match, history, isLoading }) => {
   const page = get(match, 'params.page', '');
   const next = page && page ? parseInt(page as string, 10) + 1 : 2;
   return (
     <LoadMoreContainer>
-      <Button onClick={() => history.push(`/page/${next}`)}>Load More</Button>
+      <Button disabled={isLoading} onClick={() => history.push(`/page/${next}`)}>
+        Load More
+      </Button>
     </LoadMoreContainer>
   );
 };
