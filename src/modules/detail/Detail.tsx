@@ -30,7 +30,7 @@ const Detail: React.FC<Props> = ({ match, history }) => {
     const { id, height, name, abilities, stats, weight, types } = data;
     return (
       <Container>
-        <Button onClick={() => history.push('/')}>Back</Button>
+        <Button onClick={() => history.go(-1)}>Back</Button>
         <DetailContainer>
           <DetailImageContainer>
             <DetailImage src={renderPokemonImage(id)} />
@@ -74,6 +74,7 @@ const DetailContainer = styled('div')`
 
 const DetailImageContainer = styled('div')`
   flex: 0 0 25%;
+  padding: 40px;
   ${ResponsiveFlex};
 `;
 

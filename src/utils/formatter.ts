@@ -2,9 +2,10 @@ import { PokemonList } from 'interfaces/pokemon';
 import { LIMIT, OFFSET } from 'utils/constants';
 
 const IMAGE_STORAGE =
-  process.env.IMAGE_STORAGE || 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon';
+  process.env.IMAGE_STORAGE ||
+  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world';
 
-export const renderPokemonImage = (id: string): string => `${IMAGE_STORAGE}/${id}.png`;
+export const renderPokemonImage = (id: string): string => `${IMAGE_STORAGE}/${id}.svg`;
 
 export const renderPokemonId = (data: PokemonList): string => {
   const rx = /https:\/\/pokeapi.co\/api\/v2\/pokemon\/([A-Za-z0-9-_]+)\//;

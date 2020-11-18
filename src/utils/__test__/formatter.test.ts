@@ -14,7 +14,7 @@ describe('utils/formatter', () => {
     test('should render pokemon image URL', () => {
       const testString = '1';
       expect(renderPokemonImage(testString)).toEqual(
-        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
+        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg',
       );
     });
 

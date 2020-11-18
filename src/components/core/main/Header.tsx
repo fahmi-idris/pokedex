@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { RouteComponentProps, withRouter } from 'react-router';
+
 import { colors, fonts } from 'components/provider';
 
-const Header: React.FC = () => (
+type Props = RouteComponentProps;
+
+const Header: React.FC<Props> = ({ history }) => (
   <HeaderContainer>
-    <Logo>pokedex</Logo>
+    <Logo onClick={() => history.push('/')}>pokedex</Logo>
   </HeaderContainer>
 );
 
@@ -22,6 +26,8 @@ const Logo = styled('h1')`
   color: ${colors.white};
   margin: 0;
   text-transform: uppercase;
+  cursor: pointer;
+  display: inline-block;
 `;
 
-export default Header;
+export default withRouter(Header);
