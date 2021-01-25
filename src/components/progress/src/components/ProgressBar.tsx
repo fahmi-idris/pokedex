@@ -27,7 +27,8 @@ const LoadingBar = styled('div')<{ width: string }>`
   height: 100%;
   background-color: ${colors.main};
   border-radius: 10px;
-  ${(props) => props.width && `width: ${props.width}`}
+  max-width: 100%;
+  ${(props) => props.width && `width: ${props.width};`}
 `;
 
 export default ProgressBar;
